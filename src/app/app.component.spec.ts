@@ -10,22 +10,19 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
   it(`should have as title 'Client'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('Client');
-  });
+});
 
-  it('should render title', () => {
+it('should change title to Unit Test App', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
+    fixture.nativeElement.querySelector('button').click();
     fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Client app is running!');
-  });
+    expect(fixture.nativeElement.querySelector('h1')
+        .textContent).toEqual('Uni Test App');
+}));
+
+
 });
